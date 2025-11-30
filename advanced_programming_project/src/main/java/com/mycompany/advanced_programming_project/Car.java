@@ -13,7 +13,7 @@ public class Car extends Vehicle{
     Boolean isFamilyCar;
     int numberOfSeats;
     
-    /*Car(String manufacturer,
+    Car(String manufacturer,
             String model,
             int year,
             float rentalRatePerDay,
@@ -38,5 +38,5 @@ public class Car extends Vehicle{
     
     void display_info(){
         System.out.println("this should display the information gui later on");
-    }*/
+    }
 }
