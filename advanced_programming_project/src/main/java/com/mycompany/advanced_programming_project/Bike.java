@@ -8,7 +8,7 @@ package com.mycompany.advanced_programming_project;
  *
  * @author marwa
  */
-public class Bike {
+public class Bike extends Vehicle{
 
     String type;
 

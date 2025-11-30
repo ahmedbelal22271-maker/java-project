@@ -8,7 +8,7 @@ package com.mycompany.advanced_programming_project;
  *
  * @author marwa
  */
-public class Van {
+public class Van extends Vehicle{
     Boolean isRefrigerated;
 
     Van(String manufacturer,
