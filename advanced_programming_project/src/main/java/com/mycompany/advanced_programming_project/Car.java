@@ -8,7 +8,7 @@ package com.mycompany.advanced_programming_project;
  *
  * @author marwa
  */
-public class Car extends Vehicle{
+public class Car extends Vehicle implements Displayable{
     String fuelType;
     Boolean isFamilyCar;
     int numberOfSeats;
@@ -37,7 +37,7 @@ public class Car extends Vehicle{
         System.out.println("This is a Car");
     }
     
-    void display_info(){
+    public void displayInfo(){
         System.out.println("this should display the information gui later on");
     }
 }

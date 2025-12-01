@@ -8,7 +8,7 @@ package com.mycompany.advanced_programming_project;
  *
  * @author marwa
  */
-public class Van extends Vehicle{
+public class Van extends Vehicle implements Displayable{
     Boolean isRefrigerated;
     int EngineInHorsePower;
 
@@ -29,5 +29,9 @@ public class Van extends Vehicle{
         this.isRefrigerated = isRefrigerated;
 
         System.out.println("This is a Van");
+    }
+
+    public void displayInfo(){
+        System.out.println("The vehicle got displayed");
     }
 }

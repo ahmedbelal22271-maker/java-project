@@ -8,7 +8,7 @@ package com.mycompany.advanced_programming_project;
  *
  * @author marwa
  */
-public class Bike extends Vehicle{
+public class Bike extends Vehicle implements Displayable{
 
     String type;
 
@@ -27,5 +27,9 @@ public class Bike extends Vehicle{
         this.type = type;
 
         System.out.println("This is a Car");
+    }
+
+    public void displayInfo(){
+        System.out.println("The vehicle got displayed");
     }
 }
