@@ -24,12 +24,7 @@ public class Car extends Vehicle implements Displayable{
             Boolean isFamilyCar,
             int numberOfSeats
             ){
-        super();
-        this.manufacturer = manufacturer;
-        this.year = year;
-        this.rentalRatePerDay = rentalRatePerDay;
-        this.EngineInHorsePower = EngineInHorsePower;
-        this.numberAvailable = numberAvailable;
+        super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.fuelType = fuelType;
         this.isFamilyCar = isFamilyCar;
         this.numberOfSeats = numberOfSeats;

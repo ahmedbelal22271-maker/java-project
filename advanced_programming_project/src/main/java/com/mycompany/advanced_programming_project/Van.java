@@ -14,18 +14,13 @@ public class Van extends Vehicle implements Displayable{
 
     Van(String manufacturer,
         String model,
+        int numberAvailable,
         int year,
         float rentalRatePerDay,
         int EngineInHorsePower,
-        int numberAvailable,
         Boolean isRefrigerated
     ){
-        super();
-        this.manufacturer = manufacturer;
-        this.year = year;
-        this.rentalRatePerDay = rentalRatePerDay;
-        this.EngineInHorsePower = EngineInHorsePower;
-        this.numberAvailable = numberAvailable;
+        super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.isRefrigerated = isRefrigerated;
 
         System.out.println("This is a Van");

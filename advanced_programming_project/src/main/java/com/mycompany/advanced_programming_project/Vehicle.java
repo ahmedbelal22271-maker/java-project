@@ -18,7 +18,12 @@ public class Vehicle {
     float rentalRatePerDay;
     int year;
 
-    Vehicle(){
+    Vehicle(String manufacturer,String model,int numberAvailable,float rentalRatePerDay,int year){
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.year = year;
+        this.rentalRatePerDay = rentalRatePerDay;
+        this.numberAvailable = numberAvailable;
         numberOfVehicles++;
         vehicleId = String.valueOf(numberOfVehicles);
     }

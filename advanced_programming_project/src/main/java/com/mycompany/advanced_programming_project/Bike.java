@@ -19,11 +19,7 @@ public class Bike extends Vehicle implements Displayable{
         int engineCapacity,
         int numberAvailable,
         String type){
-        super();
-        this.manufacturer = manufacturer;
-        this.year = year;
-        this.rentalRatePerDay = rentalRatePerDay;
-        this.numberAvailable = numberAvailable;
+        super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.type = type;
 
         System.out.println("This is a Car");
