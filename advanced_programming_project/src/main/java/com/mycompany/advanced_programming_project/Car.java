@@ -12,12 +12,13 @@ public class Car extends Vehicle{
     String fuelType;
     Boolean isFamilyCar;
     int numberOfSeats;
+    int EngineInHorsePower;
     
     Car(String manufacturer,
             String model,
             int year,
             float rentalRatePerDay,
-            int engineCapacity,
+            int EngineInHorsePower,
             int numberAvailable,
             String fuelType,
             Boolean isFamilyCar,
@@ -27,7 +28,7 @@ public class Car extends Vehicle{
         this.manufacturer = manufacturer;
         this.year = year;
         this.rentalRatePerDay = rentalRatePerDay;
-        this.engineCapacity = engineCapacity;
+        this.EngineInHorsePower = EngineInHorsePower;
         this.numberAvailable = numberAvailable;
         this.fuelType = fuelType;
         this.isFamilyCar = isFamilyCar;

@@ -23,7 +23,6 @@ public class Bike extends Vehicle{
         this.manufacturer = manufacturer;
         this.year = year;
         this.rentalRatePerDay = rentalRatePerDay;
-        this.engineCapacity = engineCapacity;
         this.numberAvailable = numberAvailable;
         this.type = type;
 

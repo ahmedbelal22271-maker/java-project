@@ -10,12 +10,13 @@ package com.mycompany.advanced_programming_project;
  */
 public class Van extends Vehicle{
     Boolean isRefrigerated;
+    int EngineInHorsePower;
 
     Van(String manufacturer,
         String model,
         int year,
         float rentalRatePerDay,
-        int engineCapacity,
+        int EngineInHorsePower,
         int numberAvailable,
         Boolean isRefrigerated
     ){
@@ -23,7 +24,7 @@ public class Van extends Vehicle{
         this.manufacturer = manufacturer;
         this.year = year;
         this.rentalRatePerDay = rentalRatePerDay;
-        this.engineCapacity = engineCapacity;
+        this.EngineInHorsePower = EngineInHorsePower;
         this.numberAvailable = numberAvailable;
         this.isRefrigerated = isRefrigerated;
 
