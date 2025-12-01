@@ -16,7 +16,6 @@ public class Bike extends Vehicle implements Displayable{
         String model,
         int year,
         float rentalRatePerDay,
-        int engineCapacity,
         int numberAvailable,
         String type){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);

@@ -22,6 +22,7 @@ public class Van extends Vehicle implements Displayable{
     ){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.isRefrigerated = isRefrigerated;
+        this.EngineInHorsePower = EngineInHorsePower;
 
         System.out.println("This is a Van");
     }
