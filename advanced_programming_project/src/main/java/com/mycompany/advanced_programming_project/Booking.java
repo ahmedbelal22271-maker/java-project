@@ -12,9 +12,9 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Booking {
-     private String booking_id;
-    private LocalDate   start_date;
-    private LocalDate   end_date;
+     private String booking_id;     
+    private LocalDate   start_date;     //rent start date
+    private LocalDate   end_date;       //rent end day
     private String status;
     private User   user;
     private Vehicle vehicle;
@@ -43,14 +43,16 @@ public class Booking {
       System.out.println(p.getDays() + " days");
    }
    public void confirm_booking(){
-       System.out.println("Booking is confirmed succesfully");
+       status="Booking Confirmed";
+      vehicle.decrementNumberAvailable();
+       
    }
    
     public void cancel_booking(){
         
-        System.out.println("Booking has been canceled");
-        
-       
+      status="Booking cancelled";
+      vehicle.incrementNumberAvailable();
+      
    }
     
 }
