@@ -57,9 +57,20 @@ public class Main {
             }
         }
 
-        Vehicle[] vehicleArray = {
-                
-        }
+        Vehicle[] vehicles = new Vehicle[] {
+                new Bike("Trek", "Marlin 7", 2021, 15.5f, 5, "Mountain"),
+                new Van("Ford", "Transit", 3, 2021, 45.0f, 150, true),
+                new Car("Toyota", "Corolla", 2020, 40.0f, 132, 4, "Petrol", true, 5),
+                new Bike("Giant", "Escape 3", 2020, 12.0f, 8, "Road"),
+                new Car("Honda", "Civic", 2022, 42.5f, 158, 2, "Petrol", true, 5),
+                new Van("Mercedes-Benz", "Sprinter", 5, 2020, 50.0f, 180, false),
+                new Bike("Cannondale", "Quick 4", 2019, 13.5f, 6, "Hybrid"),
+                new Car("BMW", "X3", 2021, 70.0f, 200, 3, "Diesel", false, 5),
+                new Van("Nissan", "NV3500", 4, 2019, 42.5f, 140, false),
+                new Bike("Specialized", "Rockhopper", 2022, 16.0f, 3, "Mountain")
+        };
+
+
 
 
 

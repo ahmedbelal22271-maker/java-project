@@ -43,12 +43,14 @@ public class Booking {
       System.out.println(p.getDays() + " days");
    }
    public void confirm_booking(){
-       System.out.println("Booking is confirmed succesfully");
+       status="Booking Confirmed";
+       vehicle.decrementNumberAvailable();
    }
    
     public void cancel_booking(){
-        
-        System.out.println("Booking has been canceled");
+
+        status="Booking cancelled";
+        vehicle.incrementNumberAvailable();
         
        
    }
