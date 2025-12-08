@@ -21,7 +21,6 @@ public class Bike extends Vehicle implements Displayable{
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.type = type;
 
-        System.out.println("This is a Car");
     }
 
     public void displayInfo(){

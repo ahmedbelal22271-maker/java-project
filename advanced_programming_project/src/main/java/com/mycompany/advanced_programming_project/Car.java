@@ -29,7 +29,6 @@ public class Car extends Vehicle implements Displayable{
         this.isFamilyCar = isFamilyCar;
         this.numberOfSeats = numberOfSeats;
         
-        System.out.println("This is a Car");
     }
     
     public void displayInfo(){
