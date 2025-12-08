@@ -12,9 +12,9 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Booking {
-     private String booking_id;
-    private LocalDate   start_date;
-    private LocalDate   end_date;
+    private String booking_id;
+    private LocalDate   start_date;     //rent start date
+    private LocalDate   end_date;       //rent end day
     private String status;
     private User   user;
     private Vehicle vehicle;
@@ -32,25 +32,27 @@ public class Booking {
         this.payment = payment;
     }
 
-    
-    
-  public void calculate_duration(){      //calculates the difference between the end and start dates
-      
-      Period p = Period.between(start_date,end_date);
-      System.out.println("Booking duration:");
-      System.out.println(p.getYears() + " years");
-      System.out.println(p.getMonths() + " months");
-      System.out.println(p.getDays() + " days");
-   }
-   public void confirm_booking(){
-       System.out.println("Booking is confirmed succesfully");
-   }
-   
+
+
+    public void calculate_duration(){      //calculates the difference between the end and start dates
+
+        Period p = Period.between(start_date,end_date);
+        System.out.println("Booking duration:");
+        System.out.println(p.getYears() + " years");
+        System.out.println(p.getMonths() + " months");
+        System.out.println(p.getDays() + " days");
+    }
+    public void confirm_booking(){
+        status="Booking Confirmed";
+        vehicle.decrementNumberAvailable();
+
+    }
+
     public void cancel_booking(){
-        
-        System.out.println("Booking has been canceled");
-        
-       
-   }
-    
+
+        status="Booking cancelled";
+        vehicle.incrementNumberAvailable();
+
+    }
+
 }
