@@ -1,4 +1,4 @@
-package com.mycompany.advanced_programming_project;
+package com.mycompany.advancedproject;
 
 import java.time.LocalDate;
 
@@ -21,20 +21,20 @@ public class Payment {
     }
 
 
-    public void process_payment(double bookingTotal) { //car price
+   public void process_payment(double bookingTotal) { //car price
 
-        if (amount <= 0) {
-            status = "failed";
-
-        }
-        // CASH PAYMENT
-        if (payment_method.equalsIgnoreCase("cash")) {
-            boolean ok = amount >= bookingTotal;
-            status = ok ? "successful" : "failed";
-        }
+    if (amount <= 0) {
+        status = "failed";
 
     }
-
+    // CASH PAYMENT
+    if (payment_method.equalsIgnoreCase("cash")) {
+        boolean ok = amount >= bookingTotal;
+        status = ok ? "successful" : "failed";
+    }
+    
+}
+    
 
     public void send_receipt() {
         System.out.println("Payment Id: " + payment_id);
