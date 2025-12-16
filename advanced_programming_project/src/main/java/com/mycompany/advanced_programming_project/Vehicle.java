@@ -37,6 +37,10 @@ public class Vehicle {
         numberAvailable++;
     }
 
+    String getModel(){
+        return model;
+    }
+
 
 
 }

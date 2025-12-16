@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.ArrayList;
+
 
 public class chooseVehicleController {
     public ChoiceBox<String> myChoiceBox;
@@ -14,16 +16,17 @@ public class chooseVehicleController {
     public TextField fuelType_EngineInHorsePower_typeTextField;
     public TextField model_cargoCapacity_nullTextField;
     public TextField numberOfSeats_null_nullTextField;
-    public ChoiceBox fuelTypeChoiceBox;
-    public Spinner horsepowerSpinner;
-    public ChoiceBox modelChoiceBox;
-    public Spinner cargoCapacitySpinner;
-    public ChoiceBox typeChoiceBox;
-    public Spinner noOfSeatsSpinner;
+    public ChoiceBox<String> fuelTypeChoiceBox;
+    public Spinner<Integer> horsepowerSpinner;
+    public ChoiceBox<String> modelChoiceBox;
+    public Spinner<Integer> cargoCapacitySpinner;
+    public ChoiceBox<String> typeChoiceBox;
+    public Spinner<Integer> noOfSeatsSpinner;
     public Label cargoCapacityLabel;
 
     @FXML
     public void initialize(){
+        VehicleArrayList.generateData();
         myChoiceBox.getItems().addAll("Car", "Van","Bike");
         myChoiceBox.setValue("select a vehicle");
         fuelType_EngineInHorsePower_typeLabel.setVisible(false);
@@ -136,17 +139,68 @@ public class chooseVehicleController {
     @FXML
     void handleSubmitButton(ActionEvent event) { // <--- 2. Add 'public' (best practice)
         System.out.println("the submit button was clicked");
+        ArrayList<Vehicle> list = new ArrayList<>();
         String vehicleChoice = myChoiceBox.getValue();
+        System.out.println("the vehicle chosen is: " + vehicleChoice);
+
         if (vehicleChoice.equals("Car")){
+            System.out.println("The vehicle is indeed a car");
+            String fuelTypeChoice = fuelTypeChoiceBox.getValue();
+            String modelChoice = modelChoiceBox.getValue();
+            int numberOfSeatsChoice = noOfSeatsSpinner.getValue();
+            for (Car car : VehicleArrayList.carsList){
+                System.out.println("iterating through the cars");
+                if (car.getFuelType().equals(fuelTypeChoice) &&
+                        car.getNumberOfSeats() >= numberOfSeatsChoice &&
+                        car.getModel().equals(modelChoice)
+                ) {
+                    list.add(car);
+                    System.out.println("added a car");
+                }
 
-        }
+
+                }}
         if (vehicleChoice.equals("Van")){
+            System.out.println("the vehicle is indeed a van");
+            int horsepowerChoice = horsepowerSpinner.getValue();
+            int cargoCapacityChoice = cargoCapacitySpinner.getValue();
 
+            for (Van van : VehicleArrayList.vansList){
+                System.out.println("iterating through the vans");
+
+
+                if (van.getEngineInHorsePower() >= horsepowerChoice &&
+                        van.getCargoCapacity() >= cargoCapacityChoice){
+                    list.add(van);
+                    System.out.println("added a van");
+
+                }
+
+            }
         }
         if (vehicleChoice.equals("Bike")){
+            System.out.println("the vehicle is indeed a bike");
+            String typeChoice = typeChoiceBox.getValue();
 
+            for (Bike bike : VehicleArrayList.bikesList){
+                System.out.println("iterating through the bikes");
+                if (bike.getType().equals(typeChoice)){
+                    list.add(bike);
+                    System.out.println("added a bike");
+
+                }
+            }
+        }
+        VehicleArrayList.assignArrayList(list);
+        for (Vehicle v : list ){
+            System.out.println(v);
+        }
+
+        if (!list.isEmpty()){
+            System.out.println("The vehicle arraylist is indeed not empty");
+            SceneSwitcher.switchTo("/display-vehicle.fxml", "Vehicle Display Scene");
         }
 
 
-    } // <--- 3. No semicolon here
+    }
 }

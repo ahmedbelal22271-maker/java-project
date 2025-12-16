@@ -48,4 +48,16 @@ public class Car extends Vehicle implements Displayable{
     public void displayInfo(){
         System.out.println("this should display the information gui later on");
     }
+
+    public String getFuelType(){
+        return fuelType;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public int getEngineInHorsePower(){
+        return EngineInHorsePower;
+    }
 }

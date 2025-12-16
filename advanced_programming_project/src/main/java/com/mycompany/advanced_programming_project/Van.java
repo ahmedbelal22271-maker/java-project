@@ -31,4 +31,12 @@ public class Van extends Vehicle implements Displayable{
     public void displayInfo(){
         System.out.println("The vehicle got displayed");
     }
+
+    int getEngineInHorsePower(){
+        return EngineInHorsePower;
+    }
+
+    double getCargoCapacity(){
+        return cargoCapacity;
+    }
 }

@@ -35,4 +35,8 @@ public class Bike extends Vehicle implements Displayable{
     public void displayInfo(){
         System.out.println("The vehicle got displayed");
     }
+
+    String getType(){
+        return type;
+    }
 }

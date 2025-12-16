@@ -80,28 +80,24 @@ public class LoginController {
             }
             if (userId.equals(user.getUserId())){
                 isCorrectUserId = true;
-                System.out.println("User ID is correct");
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
 
             }
             if (email.equals(user.getEmail())){
                 isCorrectEmail = true;
-                System.out.println("email is correct");
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
 
             }
             if (phoneNo.equals(user.getPhoneNumber())){
                 isCorrectPhoneNo = true;
-                System.out.println("Login success");
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
 
             }
             if (licenseNo.equals(user.getLicenseNo())){
                 isCorrectLicenseNo = true;
-                System.out.println("Login success");
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
 
@@ -109,7 +105,6 @@ public class LoginController {
             if (isCorrectEmail & isCorrectName & isCorrectLicenseNo & isCorrectPhoneNo & isCorrectUserId){
                 foundUser = true;
                 currentUserClass.currentUser = user;
-                System.out.println("Login valid");
                 break;
             }
         }
