@@ -25,6 +25,7 @@ public class Vehicle {
         this.year = year;
         this.rentalRatePerDay = rentalRatePerDay;
         this.numberAvailable = numberAvailable;
+        imageFilePath = null;
         numberOfVehicles++;
         vehicleId = String.valueOf(numberOfVehicles);
     }

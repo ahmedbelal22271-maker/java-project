@@ -26,8 +26,24 @@ public class Car extends Vehicle implements Displayable{
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.fuelType = fuelType;
         this.numberOfSeats = numberOfSeats;
-        
+        if (model.equals("SUV") & (numberOfSeats == 4 || numberOfSeats == 6)){
+            imageFilePath = "/images/suv.jpeg";
+        }
+        if (model.equals("Sedan") & numberOfSeats == 4){
+            imageFilePath = "images/sedan.jpeg";
+        }
+        if (model.equals("Hatchback") & numberOfSeats == 4){
+            imageFilePath = "images/hatchback.jpeg";
+        }
+        if (model.equals("Coupe") & numberOfSeats == 2){
+            imageFilePath = "images/coupe.jpeg";
+        }
+        if (fuelType.equals("Electric")){
+            imageFilePath = "images/electric car.jpeg";
+        }
     }
+
+
     
     public void displayInfo(){
         System.out.println("this should display the information gui later on");

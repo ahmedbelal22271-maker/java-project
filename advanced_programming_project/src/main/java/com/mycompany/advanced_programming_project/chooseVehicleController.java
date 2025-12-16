@@ -2,10 +2,7 @@ package com.mycompany.advanced_programming_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 public class chooseVehicleController {
@@ -18,7 +15,7 @@ public class chooseVehicleController {
     public TextField model_cargoCapacity_nullTextField;
     public TextField numberOfSeats_null_nullTextField;
     public ChoiceBox fuelTypeChoiceBox;
-    public Spinner HorsepowerSpinner;
+    public Spinner horsepowerSpinner;
     public ChoiceBox modelChoiceBox;
     public Spinner cargoCapacitySpinner;
     public ChoiceBox typeChoiceBox;
@@ -30,21 +27,40 @@ public class chooseVehicleController {
         myChoiceBox.getItems().addAll("Car", "Van","Bike");
         myChoiceBox.setValue("select a vehicle");
         fuelType_EngineInHorsePower_typeLabel.setVisible(false);
+
         model_cargoCapacity_nullLabel.setVisible(false);
+
         numberOfSeats_null_nullLabel.setVisible(false);
+
         fuelType_EngineInHorsePower_typeTextField.setVisible(false);
+
         fuelTypeChoiceBox.setVisible(false);
         fuelTypeChoiceBox.getItems().addAll("Petrol","Diesel","Electric");
-        HorsepowerSpinner.setVisible(false);
+
+        horsepowerSpinner.setVisible(false);
+        SpinnerValueFactory<Integer> hpFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(70,350,130,5);
+        horsepowerSpinner.setValueFactory(hpFactory);
+        horsepowerSpinner.setEditable(true);
 
         typeChoiceBox.setVisible(false);
+        typeChoiceBox.getItems().addAll("Motor Bike","Motor Skooter","Racing Motor Bike");
+
         model_cargoCapacity_nullTextField.setVisible(false);
+
         modelChoiceBox.setVisible(false);
+        modelChoiceBox.getItems().addAll("SUV", "Sedan", "Hatchback", "Coupe");
+
         cargoCapacitySpinner.setVisible(false);
+        SpinnerValueFactory<Integer> cargoFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 5000, 500, 50);
+        cargoCapacitySpinner.setValueFactory(cargoFactory);
+        cargoCapacitySpinner.setEditable(true);
+
         cargoCapacityLabel.setVisible(false);
         numberOfSeats_null_nullTextField.setVisible(false);
         noOfSeatsSpinner.setVisible(false);
-
+        SpinnerValueFactory<Integer> seatsFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 6, 4, 1);
+        noOfSeatsSpinner.setValueFactory(seatsFactory);
+        cargoCapacitySpinner.setEditable(true);
 
         usernameLabel.setText("Hello, " + currentUserClass.currentUser.getName());
 
@@ -62,7 +78,7 @@ public class chooseVehicleController {
                         numberOfSeats_null_nullLabel.setVisible(true);
                         fuelType_EngineInHorsePower_typeTextField.setVisible(false);
                         fuelTypeChoiceBox.setVisible(true);
-                        HorsepowerSpinner.setVisible(false);
+                        horsepowerSpinner.setVisible(false);
                         typeChoiceBox.setVisible(false);
                         model_cargoCapacity_nullTextField.setVisible(false);
                         modelChoiceBox.setVisible(true);
@@ -80,7 +96,7 @@ public class chooseVehicleController {
                         numberOfSeats_null_nullLabel.setVisible(false);
                         fuelType_EngineInHorsePower_typeTextField.setVisible(false);
                         fuelTypeChoiceBox.setVisible(false);
-                        HorsepowerSpinner.setVisible(true);
+                        horsepowerSpinner.setVisible(true);
                         typeChoiceBox.setVisible(false);
                         model_cargoCapacity_nullTextField.setVisible(false);
                         modelChoiceBox.setVisible(false);
@@ -98,7 +114,7 @@ public class chooseVehicleController {
                         numberOfSeats_null_nullLabel.setVisible(false);
                         fuelType_EngineInHorsePower_typeTextField.setVisible(false);
                         fuelTypeChoiceBox.setVisible(false);
-                        HorsepowerSpinner.setVisible(false);
+                        horsepowerSpinner.setVisible(false);
                         typeChoiceBox.setVisible(true);
                         model_cargoCapacity_nullTextField.setVisible(false);
                         modelChoiceBox.setVisible(false);

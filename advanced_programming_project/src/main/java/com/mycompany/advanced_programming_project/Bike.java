@@ -21,6 +21,15 @@ public class Bike extends Vehicle implements Displayable{
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.type = type;
 
+        if (model.equals("Motor Bike")){
+            imageFilePath = "/images/normal motor bike.jpeg";
+        }
+        if (model.equals("Racing Motor Bike")){
+            imageFilePath = "/images/racing motor bike.jpeg";
+        }
+        if (model.equals("Motor Skooter")){
+            imageFilePath = "images/motor skooter.jpeg";
+        }
     }
 
     public void displayInfo(){
