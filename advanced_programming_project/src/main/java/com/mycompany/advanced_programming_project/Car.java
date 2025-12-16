@@ -10,9 +10,9 @@ package com.mycompany.advanced_programming_project;
  */
 public class Car extends Vehicle implements Displayable{
     String fuelType;
+    Boolean isFamilyCar;
     int numberOfSeats;
     int EngineInHorsePower;
-
     
     Car(String manufacturer,
             String model,
@@ -21,10 +21,12 @@ public class Car extends Vehicle implements Displayable{
             int EngineInHorsePower,
             int numberAvailable,
             String fuelType,
+            Boolean isFamilyCar,
             int numberOfSeats
             ){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.fuelType = fuelType;
+        this.isFamilyCar = isFamilyCar;
         this.numberOfSeats = numberOfSeats;
         if (model.equals("SUV") & (numberOfSeats == 4 || numberOfSeats == 6)){
             imageFilePath = "/images/suv.jpeg";
