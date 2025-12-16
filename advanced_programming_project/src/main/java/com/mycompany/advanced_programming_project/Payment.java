@@ -1,4 +1,4 @@
-package com.mycompany.advancedproject;
+package com.mycompany.advanced_programming_project;
 
 import java.time.LocalDate;
 
