@@ -1,5 +1,4 @@
-package com.mycompany.advancedproject;
-
+package com.mycompany.advanced_programming_project;
 import java.time.LocalDate;
 
 public class Payment {
@@ -29,8 +28,10 @@ public class Payment {
     }
     // CASH PAYMENT
     if (payment_method.equalsIgnoreCase("cash")) {
-        boolean ok = amount >= bookingTotal;
+        boolean ok = amount <= bookingTotal;
         status = ok ? "successful" : "failed";
+        send_receipt();
+
     }
     
 }

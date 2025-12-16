@@ -9,8 +9,8 @@ package com.mycompany.advanced_programming_project;
  * @author marwa
  */
 public class Van extends Vehicle implements Displayable{
-    Boolean isRefrigerated;
-    int EngineInHorsePower;
+    private int EngineInHorsePower;
+    private double cargoCapacity;
 
     Van(String manufacturer,
         String model,
@@ -18,11 +18,11 @@ public class Van extends Vehicle implements Displayable{
         int year,
         float rentalRatePerDay,
         int EngineInHorsePower,
-        Boolean isRefrigerated
+        double cargoCapacity
     ){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
-        this.isRefrigerated = isRefrigerated;
         this.EngineInHorsePower = EngineInHorsePower;
+        this.cargoCapacity = cargoCapacity;
 
     }
 

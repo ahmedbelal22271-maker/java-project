@@ -9,14 +9,15 @@ package com.mycompany.advanced_programming_project;
  * @author marwa
  */
 public class Vehicle {
-    String vehicleId;
-    static int numberOfVehicles;
-    Boolean isAvailable;
-    String manufacturer;
-    String model;
-    int numberAvailable;
-    float rentalRatePerDay;
-    int year;
+    protected String vehicleId;
+    protected static int numberOfVehicles;
+    protected Boolean isAvailable;
+    protected String manufacturer;
+    protected String model;
+    protected int numberAvailable;
+    protected float rentalRatePerDay;
+    protected int year;
+    protected String imageFilePath;
 
     Vehicle(String manufacturer,String model,int numberAvailable,float rentalRatePerDay,int year){
         this.manufacturer = manufacturer;
@@ -34,5 +35,7 @@ public class Vehicle {
     void incrementNumberAvailable(){
         numberAvailable++;
     }
+
+
 
 }

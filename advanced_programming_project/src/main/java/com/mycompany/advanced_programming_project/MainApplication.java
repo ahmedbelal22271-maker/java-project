@@ -11,15 +11,14 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
+        SceneSwitcher.setStage(stage);
+
+
         // 1. THIS IS THE LINE THAT LOADS THE FILE
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/choose-vehicle.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/login-view.fxml"));
 
-        // 2. This puts the loaded file into the window
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        SceneSwitcher.switchTo("/login-view.fxml", "Login page");
     }
 
     // Standard main method required for most IDEs/systems

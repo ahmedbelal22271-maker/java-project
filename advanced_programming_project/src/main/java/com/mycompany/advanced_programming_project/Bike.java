@@ -10,7 +10,7 @@ package com.mycompany.advanced_programming_project;
  */
 public class Bike extends Vehicle implements Displayable{
 
-    String type;
+    private String type;
 
     Bike(String manufacturer,
         String model,
