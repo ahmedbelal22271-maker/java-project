@@ -31,9 +31,9 @@
       </Pane>
       <Label fx:id="usernameLabel" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="205.0" text="Label" />
       <Button layoutX="333.0" layoutY="258.0" mnemonicParsing="false" text="Submit" />
-      <Label layoutX="244.0" layoutY="40.0" prefHeight="55.0" prefWidth="233.0" text="Vehicle Rental System">
+      <Label layoutX="229.0" layoutY="40.0" prefHeight="55.0" prefWidth="262.0" text="Vehicle Rental System">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
     </children>
