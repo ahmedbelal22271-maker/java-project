@@ -44,7 +44,7 @@ public class VehicleArrayList {
                 seats = rand.nextBoolean() ? 4 : 6;
             }
 
-            carsList.add(new Car(make, model, year, rate, hp, 5, fuel, seats));
+            carsList.add(new Car(make, model, year, rate,5, fuel, seats));
         }
 
         // ==========================================
