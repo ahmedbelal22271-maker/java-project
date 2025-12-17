@@ -83,8 +83,6 @@ public class VehicleArrayList {
     public static void assignArrayList(ArrayList<Vehicle> arrayList){
         vehicleArrayList = arrayList;
     }
-
-
     // Inside VehicleArrayList.java
     public static List<Vehicle> filteredList;
 

@@ -12,14 +12,7 @@ public class Car extends Vehicle implements Displayable{
     String fuelType;
     int numberOfSeats;
 
-    Car(String manufacturer,
-            String model,
-            int year,
-            float rentalRatePerDay,
-            int numberAvailable,
-            String fuelType,
-            int numberOfSeats
-            ){
+    Car(String manufacturer, String model, int year, float rentalRatePerDay, int numberAvailable, String fuelType, int numberOfSeats){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.fuelType = fuelType;
         this.numberOfSeats = numberOfSeats;

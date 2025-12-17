@@ -12,12 +12,7 @@ public class Bike extends Vehicle implements Displayable{
 
     private String type;
 
-    Bike(String manufacturer,
-        String model,
-        int year,
-        float rentalRatePerDay,
-        int numberAvailable,
-        String type){
+    Bike(String manufacturer, String model, int year, float rentalRatePerDay, int numberAvailable, String type){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);
         this.type = type;
 
