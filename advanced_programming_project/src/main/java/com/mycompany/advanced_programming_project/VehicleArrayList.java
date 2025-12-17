@@ -1,5 +1,6 @@
 package com.mycompany.advanced_programming_project;
 
+import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -83,4 +84,15 @@ public class VehicleArrayList {
         vehicleArrayList = arrayList;
     }
 
+
+    // Inside VehicleArrayList.java
+    public static List<Vehicle> filteredList;
+
+    public static void assignArrayList(List<Vehicle> list) {
+        filteredList = list;
+    }
+
+    public static List<Vehicle> getFilteredList() {
+        return filteredList;
+    }
 }

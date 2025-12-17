@@ -33,12 +33,12 @@
            </fill>
        </Rectangle>
        <ImageView fitHeight="126.0" fitWidth="220.0" layoutX="191.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
-       <Label layoutX="360.0" layoutY="230.0" text="rent/day" />
-       <Label layoutX="252.0" layoutY="69.0" text=" (model)" />
-       <Label layoutX="184.0" layoutY="229.0" prefHeight="18.0" prefWidth="98.0" text="-number of seats" />
+       <Label fx:id="lblRent" layoutX="360.0" layoutY="230.0" text="rent/day" />
+       <Label fx:id="lblModel" layoutX="252.0" layoutY="69.0" text=" (model)" />
+       <Label fx:id="lblNumberOfSeats" layoutX="184.0" layoutY="229.0" prefHeight="18.0" prefWidth="98.0" text="-number of seats" />
        <RadioButton layoutX="180.0" layoutY="351.0" mnemonicParsing="false" text="select this option" />
-       <Button layoutX="519.0" layoutY="360.0" mnemonicParsing="false" text="NEXT" />
-       <Button layoutX="36.0" layoutY="360.0" mnemonicParsing="false" text="BACK" />
+       <Button fx:id="nextButton" layoutX="519.0" layoutY="360.0" mnemonicParsing="false" text="NEXT" />
+       <Button fx:id="backButton" layoutX="36.0" layoutY="360.0" mnemonicParsing="false" text="BACK" />
        <Label layoutX="24.0" layoutY="20.0" text="Available vehicles" underline="true">
            <font>
                <Font name="System Bold" size="18.0" />
