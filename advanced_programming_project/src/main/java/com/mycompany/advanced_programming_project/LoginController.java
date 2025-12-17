@@ -78,7 +78,7 @@ public class LoginController {
 
 
             }
-            if (userId.equals(user.getUserId())){
+            if (userId.equals(user.getUser_id())){
                 isCorrectUserId = true;
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
@@ -90,13 +90,13 @@ public class LoginController {
 
 
             }
-            if (phoneNo.equals(user.getPhoneNumber())){
+            if (phoneNo.equals(user.getPhone_number())){
                 isCorrectPhoneNo = true;
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
 
             }
-            if (licenseNo.equals(user.getLicenseNo())){
+            if (licenseNo.equals(user.getLicense_number())){
                 isCorrectLicenseNo = true;
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 

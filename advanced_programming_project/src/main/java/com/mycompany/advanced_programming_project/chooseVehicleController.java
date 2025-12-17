@@ -137,7 +137,7 @@ public class chooseVehicleController {
 
 
     @FXML
-    void handleSubmitButton(ActionEvent event) { // <--- 2. Add 'public' (best practice)
+    void handleSubmitButton(ActionEvent event) {
         System.out.println("the submit button was clicked");
         ArrayList<Vehicle> list = new ArrayList<>();
         String vehicleChoice = myChoiceBox.getValue();
@@ -159,7 +159,7 @@ public class chooseVehicleController {
                 }
 
 
-                }}
+            }}
         if (vehicleChoice.equals("Van")){
             System.out.println("the vehicle is indeed a van");
             int horsepowerChoice = horsepowerSpinner.getValue();
@@ -204,3 +204,4 @@ public class chooseVehicleController {
 
     }
 }
+

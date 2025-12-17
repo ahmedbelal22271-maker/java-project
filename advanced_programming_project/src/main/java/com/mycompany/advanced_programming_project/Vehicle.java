@@ -8,7 +8,7 @@ package com.mycompany.advanced_programming_project;
  *
  * @author marwa
  */
-public class Vehicle {
+public abstract class Vehicle {
     protected String vehicleId;
     protected static int numberOfVehicles;
     protected Boolean isAvailable;
