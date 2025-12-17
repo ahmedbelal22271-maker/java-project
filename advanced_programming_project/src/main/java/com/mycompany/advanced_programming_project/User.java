@@ -72,7 +72,9 @@ public class User {
         return license_number;
     }
 
-
+    public String getUserId() {
+        return user_id;
+    }
     //*************setters************************
 
     public void setUser_id(String user_id) {

@@ -20,7 +20,7 @@ public class displayVehicleController {
     @FXML
     private void initialize() {
         // 1. Load the list that was assigned in chooseVehicleController
-        this.vehicleList = VehicleArrayList.getFilteredList();
+        this.vehicleList = VehicleArrayList.vehicleArrayList;
 
         // 2. IMMEDIATELY show the first car
         if (vehicleList != null && !vehicleList.isEmpty()) {
@@ -50,20 +50,23 @@ public class displayVehicleController {
     }
 
     private void displayVehicle(Vehicle v) {
+        System.out.println("The vehicle will be displayed");
         // Update basic labels
         lblManufacture.setText(v.manufacturer);
         lblModel.setText("(" + v.getModel() + ")");
         lblYear.setText(String.valueOf(v.year));
-        lblRent.setText("Rent/Day: $" + v.rentalRatePerDay);
+        lblRent.setText(v.rentalRatePerDay+"$/Day" );
         lblAvailable.setText("Available: " + v.numberAvailable);
 
         // Update labels based on vehicle type
         if (v instanceof Car) {
+            System.out.println("The vehicle is a car");
             Car c = (Car) v;
             lblNumberOfSeats.setText("Seats: " + c.getNumberOfSeats());
             lblFuel.setText("Fuel: " + c.getFuelType());
             lblEngine.setText("Type: Car");
         } else if (v instanceof Van) {
+            System.out.println("the vehicle is a van");
             Van van = (Van) v;
             lblNumberOfSeats.setText("Cargo: " + van.getCargoCapacity() + "kg");
             lblFuel.setText("Type: Van");

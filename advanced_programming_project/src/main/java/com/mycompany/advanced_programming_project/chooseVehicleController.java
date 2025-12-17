@@ -160,7 +160,7 @@ public class chooseVehicleController {
                 }
 
 
-            }}
+                }}
         if (vehicleChoice.equals("Van")){
             System.out.println("the vehicle is indeed a van");
             int horsepowerChoice = horsepowerSpinner.getValue();
@@ -206,4 +206,3 @@ public class chooseVehicleController {
     }
 
 }
-
