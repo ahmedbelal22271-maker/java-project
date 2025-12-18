@@ -10,6 +10,7 @@ import java.util.List;
 
 public class displayVehicleController {
 
+    public Button returnButton;
     @FXML private Label lblManufacture, lblModel, lblRent, lblNumberOfSeats, lblAvailable, lblYear, lblFuel, lblEngine;
     @FXML private ImageView carImage;
     @FXML private Button backButton, nextButton; // Must be Button
@@ -88,5 +89,10 @@ public class displayVehicleController {
     private void updateButtonVisibility() {
         backButton.setDisable(currentIndex == 0);
         nextButton.setDisable(vehicleList == null || currentIndex == vehicleList.size() - 1);
+    }
+
+    @FXML
+    private void handleReturnButton(ActionEvent event) {
+        SceneSwitcher.switchTo("/choose-vehicle.fxml", "The Choose Vehicle Scene");
     }
 }

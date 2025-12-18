@@ -24,7 +24,7 @@ public class Van extends Vehicle implements Displayable{
         this.EngineInHorsePower = EngineInHorsePower;
         this.cargoCapacity = cargoCapacity;
 
-        imageFilePath = "images/normal van.jpeg";
+        imageFilePath = "/images/normal_van.jpeg";
 
     }
 

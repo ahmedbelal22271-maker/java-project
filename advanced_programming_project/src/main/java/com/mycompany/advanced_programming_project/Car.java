@@ -20,16 +20,16 @@ public class Car extends Vehicle implements Displayable{
             imageFilePath = "/images/suv.jpeg";
         }
         if (model.equals("Sedan") & numberOfSeats == 4){
-            imageFilePath = "images/sedan.jpeg";
+            imageFilePath = "/images/sedan.jpeg";
         }
         if (model.equals("Hatchback") & numberOfSeats == 4){
-            imageFilePath = "images/hatchback.jpeg";
+            imageFilePath = "/images/hatchback.jpeg";
         }
         if (model.equals("Coupe") & numberOfSeats == 2){
-            imageFilePath = "images/coupe.jpeg";
+            imageFilePath = "/images/coupe.jpeg";
         }
         if (fuelType.equals("Electric")){
-            imageFilePath = "images/electric car.jpeg";
+            imageFilePath = "/images/electric_car.jpeg";
         }
     }
 

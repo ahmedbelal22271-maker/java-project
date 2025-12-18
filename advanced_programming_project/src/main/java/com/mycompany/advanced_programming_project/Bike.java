@@ -17,13 +17,13 @@ public class Bike extends Vehicle implements Displayable{
         this.type = type;
 
         if (model.equals("Motor Bike")){
-            imageFilePath = "/images/normal motor bike.jpeg";
+            imageFilePath = "/images/normal_motor_bike.jpeg";
         }
         if (model.equals("Racing Motor Bike")){
-            imageFilePath = "/images/racing motor bike.jpeg";
+            imageFilePath = "/images/racing_motor_bike.jpeg";
         }
         if (model.equals("Motor Skooter")){
-            imageFilePath = "images/motor skooter.jpeg";
+            imageFilePath = "/images/motor_skooter.jpeg";
         }
     }
 

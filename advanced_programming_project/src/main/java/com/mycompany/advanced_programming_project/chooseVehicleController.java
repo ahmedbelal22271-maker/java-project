@@ -155,6 +155,7 @@ public class chooseVehicleController {
                         car.getNumberOfSeats() >= numberOfSeatsChoice &&
                         car.getModel().equals(modelChoice)
                 ) {
+                    System.out.println("the fuel is: " + car.getFuelType() + " The number of seats is " + car.getNumberOfSeats() + " the model is " + car.getModel());
                     list.add(car);
                     System.out.println("added a car");
                 }
