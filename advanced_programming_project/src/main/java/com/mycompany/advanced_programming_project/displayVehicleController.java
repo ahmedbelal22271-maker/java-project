@@ -21,7 +21,7 @@ public class displayVehicleController {
     @FXML
     private void initialize() {
         // 1. Load the list that was assigned in chooseVehicleController
-        this.vehicleList = VehicleArrayList.vehicleArrayList;
+        this.vehicleList = Database.vehicleArrayList;
 
         // 2. IMMEDIATELY show the first car
         if (vehicleList != null && !vehicleList.isEmpty()) {

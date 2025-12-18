@@ -3,7 +3,6 @@ package com.mycompany.advanced_programming_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -24,30 +23,6 @@ public class LoginController {
         invalidLoginLabel.setVisible(false);
     }
 
-    User[] userArray = {new User(
-            "1",
-            "Alice Johnson",
-            "alice.johnson@example.com",
-            "555-123-4567",
-            "1234567.89"
-    ),
-
-            new User(
-                    "2",
-                    "Mark Stevens",
-                    "mark.stevens@example.com",
-                    "555-987-6543",
-                    "9876543.21"
-            ),
-
-            new User(
-                    "3",
-                    "Sofia Ramirez",
-                    "sofia.ramirez@example.com",
-                    "555-777-8888",
-                    "5678901.34"
-            )};
-
     @FXML
     public void handleLoginButton(ActionEvent event){
 
@@ -65,7 +40,7 @@ public class LoginController {
         User currentUser = null;
         boolean foundUser = false;
 
-        for (User user : userArray){
+        for (User user : Database.userArray){
             isCorrectName = false;
             isCorrectUserId = false;
             isCorrectEmail = false;

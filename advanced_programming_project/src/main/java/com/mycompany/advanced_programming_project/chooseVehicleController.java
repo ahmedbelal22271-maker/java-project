@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class chooseVehicleController {
@@ -27,7 +26,7 @@ public class chooseVehicleController {
 
     @FXML
     public void initialize(){
-        VehicleArrayList.generateData();
+        Database.generateData();
         myChoiceBox.getItems().addAll("Car", "Van","Bike");
         myChoiceBox.setValue("select a vehicle");
         fuelType_EngineInHorsePower_typeLabel.setVisible(false);
@@ -149,7 +148,7 @@ public class chooseVehicleController {
             String fuelTypeChoice = fuelTypeChoiceBox.getValue();
             String modelChoice = modelChoiceBox.getValue();
             int numberOfSeatsChoice = noOfSeatsSpinner.getValue();
-            for (Car car : VehicleArrayList.carsList){
+            for (Car car : Database.carsList){
                 System.out.println("iterating through the cars");
                 if (car.getFuelType().equals(fuelTypeChoice) &&
                         car.getNumberOfSeats() >= numberOfSeatsChoice &&
@@ -167,7 +166,7 @@ public class chooseVehicleController {
             int horsepowerChoice = horsepowerSpinner.getValue();
             int cargoCapacityChoice = cargoCapacitySpinner.getValue();
 
-            for (Van van : VehicleArrayList.vansList){
+            for (Van van : Database.vansList){
                 System.out.println("iterating through the vans");
 
 
@@ -184,7 +183,7 @@ public class chooseVehicleController {
             System.out.println("the vehicle is indeed a bike");
             String typeChoice = typeChoiceBox.getValue();
 
-            for (Bike bike : VehicleArrayList.bikesList){
+            for (Bike bike : Database.bikesList){
                 System.out.println("iterating through the bikes");
                 if (bike.getType().equals(typeChoice)){
                     list.add(bike);
@@ -193,7 +192,7 @@ public class chooseVehicleController {
                 }
             }
         }
-        VehicleArrayList.assignArrayList(list);
+        Database.assignArrayList(list);
         for (Vehicle v : list ){
             System.out.println(v);
         }

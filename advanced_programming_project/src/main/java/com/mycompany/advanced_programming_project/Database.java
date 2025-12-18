@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class VehicleArrayList {
+public class Database {
 
     // FIX 1: Initialize these lists immediately!
     // If you don't use "= new ArrayList<>()", they remain null and crash your app.
@@ -12,6 +12,30 @@ public class VehicleArrayList {
     static ArrayList<Car> carsList = new ArrayList<>();
     static ArrayList<Van> vansList = new ArrayList<>();
     static ArrayList<Bike> bikesList = new ArrayList<>();
+    static User[] userArray = {new User(
+            "1",
+            "Alice Johnson",
+            "alice.johnson@example.com",
+            "555-123-4567",
+            "1234567.89"
+    ),
+
+            new User(
+                    "2",
+                    "Mark Stevens",
+                    "mark.stevens@example.com",
+                    "555-987-6543",
+                    "9876543.21"
+            ),
+
+            new User(
+                    "3",
+                    "Sofia Ramirez",
+                    "sofia.ramirez@example.com",
+                    "555-777-8888",
+                    "5678901.34"
+            )};
+
 
     // FIX 2: Changed to 'static' so you can call it from anywhere without 'new VehicleArrayList()'
     public static void generateData() {
