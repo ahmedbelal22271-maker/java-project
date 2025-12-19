@@ -3,9 +3,9 @@ package com.mycompany.advanced_programming_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.StringConverter;
 
 import java.util.ArrayList;
-
 
 public class chooseVehicleController {
     public ChoiceBox<String> myChoiceBox;
@@ -27,49 +27,43 @@ public class chooseVehicleController {
     @FXML
     public void initialize(){
         Database.generateData();
+
+        // 1. Setup ChoiceBoxes
         myChoiceBox.getItems().addAll("Car", "Van","Bike");
         myChoiceBox.setValue("select a vehicle");
-        fuelType_EngineInHorsePower_typeLabel.setVisible(false);
 
-        model_cargoCapacity_nullLabel.setVisible(false);
-
-        numberOfSeats_null_nullLabel.setVisible(false);
-
-        fuelType_EngineInHorsePower_typeTextField.setVisible(false);
-
-        fuelTypeChoiceBox.setVisible(false);
         fuelTypeChoiceBox.getItems().addAll("Petrol","Diesel","Electric");
-
-        horsepowerSpinner.setVisible(false);
-        SpinnerValueFactory<Integer> hpFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(70,350,130,5);
-        horsepowerSpinner.setValueFactory(hpFactory);
-        horsepowerSpinner.setEditable(true);
-
-        typeChoiceBox.setVisible(false);
         typeChoiceBox.getItems().addAll("Motor Bike","Motor Skooter","Racing Motor Bike");
-
-        model_cargoCapacity_nullTextField.setVisible(false);
-
-        modelChoiceBox.setVisible(false);
         modelChoiceBox.getItems().addAll("SUV", "Sedan", "Hatchback", "Coupe");
 
-        cargoCapacitySpinner.setVisible(false);
-        SpinnerValueFactory<Integer> cargoFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 5000, 500, 50);
-        cargoCapacitySpinner.setValueFactory(cargoFactory);
-        cargoCapacitySpinner.setEditable(true);
+        // 2. Setup Spinners using the Safe Method
+        // Horsepower: Min 70, Max 350
+        setupSafeSpinner(horsepowerSpinner, 70, 350, 130, 5);
 
+        // Cargo: Min 0, Max 5000
+        setupSafeSpinner(cargoCapacitySpinner, 0, 5000, 500, 50);
+
+        // Seats: Min 0, Max 6
+        setupSafeSpinner(noOfSeatsSpinner, 0, 6, 4, 1);
+
+        // 3. Set Initial Visibility
+        fuelType_EngineInHorsePower_typeLabel.setVisible(false);
+        model_cargoCapacity_nullLabel.setVisible(false);
+        numberOfSeats_null_nullLabel.setVisible(false);
+        fuelType_EngineInHorsePower_typeTextField.setVisible(false);
+        fuelTypeChoiceBox.setVisible(false);
+        horsepowerSpinner.setVisible(false);
+        typeChoiceBox.setVisible(false);
+        model_cargoCapacity_nullTextField.setVisible(false);
+        modelChoiceBox.setVisible(false);
+        cargoCapacitySpinner.setVisible(false);
         cargoCapacityLabel.setVisible(false);
         numberOfSeats_null_nullTextField.setVisible(false);
         noOfSeatsSpinner.setVisible(false);
-        SpinnerValueFactory<Integer> seatsFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 6, 4, 1);
-        noOfSeatsSpinner.setValueFactory(seatsFactory);
-        cargoCapacitySpinner.setEditable(true);
 
-        usernameLabel.setText("Hello, " + currentUserClass.currentUser.getName());
+        usernameLabel.setText("Hello, " + Database.currentUser.getName());
 
         myChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-
-            // Check what the NEW value is and update the label accordingly
             if (newValue != null) {
                 switch (newValue) {
                     case "Car":
@@ -129,12 +123,52 @@ public class chooseVehicleController {
                 }
             }
         });
-
-        // <--- 1. Add this so FXML can find it
-
     }
 
+    // --- ENHANCED HELPER METHOD: HANDLES TYPES AND RANGES ---
+    private void setupSafeSpinner(Spinner<Integer> spinner, int min, int max, int initial, int step) {
+        SpinnerValueFactory.IntegerSpinnerValueFactory factory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(min, max, initial, step);
 
+        StringConverter<Integer> safeConverter = new StringConverter<Integer>() {
+            @Override
+            public String toString(Integer object) {
+                return object.toString();
+            }
+
+            @Override
+            public Integer fromString(String string) {
+                try {
+                    // Check for empty input
+                    if (string == null || string.trim().isEmpty()) {
+                        return min;
+                    }
+
+                    int value = Integer.parseInt(string);
+
+                    // --- RANGE CHECKS ---
+                    if (value < min) {
+                        System.out.println("Input too low (" + value + "). Resetting to min: " + min);
+                        return min;
+                    } else if (value > max) {
+                        System.out.println("Input too high (" + value + "). Resetting to max: " + max);
+                        return max;
+                    }
+
+                    return value;
+
+                } catch (NumberFormatException e) {
+                    // Check for invalid text (e.g. "abc")
+                    System.out.println("Invalid input '" + string + "'. Resetting to min: " + min);
+                    return min;
+                }
+            }
+        };
+
+        factory.setConverter(safeConverter);
+        spinner.setValueFactory(factory);
+        spinner.setEditable(true);
+    }
 
     @FXML
     void handleSubmitButton(ActionEvent event) {
@@ -149,34 +183,24 @@ public class chooseVehicleController {
             String modelChoice = modelChoiceBox.getValue();
             int numberOfSeatsChoice = noOfSeatsSpinner.getValue();
             for (Car car : Database.carsList){
-                System.out.println("iterating through the cars");
                 if (car.getFuelType().equals(fuelTypeChoice) &&
                         car.getNumberOfSeats() >= numberOfSeatsChoice &&
                         car.getModel().equals(modelChoice)
                 ) {
-                    System.out.println("the fuel is: " + car.getFuelType() + " The number of seats is " + car.getNumberOfSeats() + " the model is " + car.getModel());
                     list.add(car);
-                    System.out.println("added a car");
                 }
-
-
-                }}
+            }
+        }
         if (vehicleChoice.equals("Van")){
             System.out.println("the vehicle is indeed a van");
             int horsepowerChoice = horsepowerSpinner.getValue();
             int cargoCapacityChoice = cargoCapacitySpinner.getValue();
 
             for (Van van : Database.vansList){
-                System.out.println("iterating through the vans");
-
-
                 if (van.getEngineInHorsePower() >= horsepowerChoice &&
                         van.getCargoCapacity() >= cargoCapacityChoice){
                     list.add(van);
-                    System.out.println("added a van");
-
                 }
-
             }
         }
         if (vehicleChoice.equals("Bike")){
@@ -184,11 +208,8 @@ public class chooseVehicleController {
             String typeChoice = typeChoiceBox.getValue();
 
             for (Bike bike : Database.bikesList){
-                System.out.println("iterating through the bikes");
                 if (bike.getType().equals(typeChoice)){
                     list.add(bike);
-                    System.out.println("added a bike");
-
                 }
             }
         }
@@ -201,8 +222,5 @@ public class chooseVehicleController {
             System.out.println("The vehicle arraylist is indeed not empty");
             SceneSwitcher.switchTo("/display-vehicle.fxml", "Vehicle Display Scene");
         }
-
-
     }
-
 }

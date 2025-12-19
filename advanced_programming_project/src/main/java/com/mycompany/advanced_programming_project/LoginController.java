@@ -79,7 +79,7 @@ public class LoginController {
             }
             if (isCorrectEmail & isCorrectName & isCorrectLicenseNo & isCorrectPhoneNo & isCorrectUserId){
                 foundUser = true;
-                currentUserClass.currentUser = user;
+                Database.currentUser = user;
                 break;
             }
         }

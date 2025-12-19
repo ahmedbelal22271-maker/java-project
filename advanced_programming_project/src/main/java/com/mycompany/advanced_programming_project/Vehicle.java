@@ -41,6 +41,10 @@ public abstract class Vehicle {
         return model;
     }
 
+    double getRentalRatePerDay(){
+        return rentalRatePerDay;
+    }
+
 
 
 }

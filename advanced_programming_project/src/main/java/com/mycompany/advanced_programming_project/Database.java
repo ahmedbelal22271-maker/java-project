@@ -35,6 +35,9 @@ public class Database {
                     "555-777-8888",
                     "5678901.34"
             )};
+    static User currentUser = null;
+    static Vehicle currentVehicle = null;
+    static Booking currentBooking = null;
 
 
     // FIX 2: Changed to 'static' so you can call it from anywhere without 'new VehicleArrayList()'
