@@ -45,6 +45,6 @@
         </Label>
         <Label fx:id="lblFuel" layoutX="181.0" layoutY="283.0" text=" -fuel type" />
       <Button fx:id="returnButton" layoutX="511.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleReturnButton" text="RETURN" />
-      <Button layoutX="266.0" layoutY="360.0" mnemonicParsing="false" text="Book now" />
+      <Button layoutX="266.0" layoutY="360.0" mnemonicParsing="false" text="Book now" onAction="#handleBookNowButton"/>
     </children>
 </AnchorPane>

@@ -64,11 +64,11 @@ public class User {
         return user_id;
     }
 
-    public String getPhone_number() {
+    public String getPhoneNumber() {
         return phone_number;
     }
 
-    public String getLicense_number() {
+    public String getLicenseNumber() {
         return license_number;
     }
 
@@ -89,11 +89,11 @@ public class User {
         this.email = email;
     }
 
-    public void setPhone_number(String phone_number) {
+    public void setPhoneNumber(String phone_number) {
         this.phone_number = phone_number;
     }
 
-    public void setLicense_number(String license_number) {
+    public void setLicenseNumber(String license_number) {
         this.license_number = license_number;
     }
 

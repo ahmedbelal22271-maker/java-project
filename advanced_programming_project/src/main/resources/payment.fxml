@@ -38,10 +38,14 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="109.0" text="email :" />
-      <Label fx:id="emailLabel" layoutX="443.0" layoutY="109.0" text="Label" />
+      <Label layoutX="408.0" layoutY="182.0" text="email :" />
+      <Label fx:id="emailLabel" layoutX="471.0" layoutY="182.0" text="Label" />
       <Label layoutX="381.0" layoutY="213.0" prefHeight="18.0" prefWidth="90.0" text="phone number :" />
       <Label fx:id="phoneNumberLabel" layoutX="471.0" layoutY="213.0" text="Label" />
-      <Button fx:id="confirmButton" layoutX="430.0" layoutY="347.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="139.0" text="Pay &amp; confirm Booking" />
+      <Button fx:id="confirmButton" layoutX="430.0" layoutY="347.0" mnemonicParsing="false" onAction="#handlePaymentSubmitButton" prefHeight="26.0" prefWidth="139.0" text="Pay &amp; confirm Booking" />
+      <Label layoutX="408.0" layoutY="120.0" text="Name:" />
+      <Label layoutX="371.0" layoutY="152.0" text="License Number:" />
+      <Label fx:id="nameLabel" layoutX="471.0" layoutY="120.0" text="Label" />
+      <Label fx:id="licenseLabel" layoutX="471.0" layoutY="152.0" text="Label" />
    </children>
 </AnchorPane>

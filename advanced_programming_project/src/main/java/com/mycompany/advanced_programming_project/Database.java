@@ -38,6 +38,7 @@ public class Database {
     static User currentUser = null;
     static Vehicle currentVehicle = null;
     static Booking currentBooking = null;
+    static Payment currentPayment = null;
 
 
     // FIX 2: Changed to 'static' so you can call it from anywhere without 'new VehicleArrayList()'

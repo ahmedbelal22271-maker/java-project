@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.StringConverter;
 
+import java.awt.event.ActionEvent;
+
 public class PaymentController {
     public ImageView vehicleImageView;
     public ToggleGroup paymentGroup;
@@ -17,11 +19,22 @@ public class PaymentController {
     public Button confirmButton;
     public RadioButton creditCardRadioButton;
     public RadioButton cashRadioButton;
+    public Payment payment;
+    public String paymentMethod;
+    public Label nameLabel;
+    public Label licenseLabel;
 
     @FXML
     public void initialize(){
-
+        creditCardTextField.setVisible(false);
         setupSafeSpinner(noOfDaysSpinner, 1, 30, 1, 1);
+
+        User user = Database.currentUser;
+
+        emailLabel.setText(user.getEmail());
+        phoneNumberLabel.setText(user.getPhoneNumber());
+        nameLabel.setText(user.getName());
+        licenseLabel.setText(user.getLicenseNumber());
 
         Vehicle vehicle = Database.currentVehicle;
 
@@ -37,8 +50,29 @@ public class PaymentController {
         paymentGroup.selectedToggleProperty().addListener((observable, oldVal, newVal) -> {
             if (newVal != null){
                 RadioButton selected = (RadioButton) newVal;
+                paymentMethod = selected.getText();
+                if (selected == cashRadioButton){
+                    creditCardTextField.setVisible(false);
+                }
+                else{
+                    creditCardTextField.setVisible(true);
+                }
+            }
+        });
 
+        // Add a listener to the VALUE property
+        noOfDaysSpinner.valueProperty().addListener((observable, oldValue, newValue) -> {
 
+            // 1. Check if the new value is valid (not null)
+            if (newValue != null) {
+
+                // 2. Perform your calculation
+                // Example: Calculate Total Cost = Days * Rent Per Day
+                double rentPerDay = Database.currentVehicle.rentalRatePerDay; // Get current price
+                double totalCost = newValue * rentPerDay;
+
+                // 3. Update the Label
+                totalAmountLabel.setText("Total Cost: $" + totalCost);
             }
         });
 
@@ -89,6 +123,10 @@ public class PaymentController {
         factory.setConverter(safeConverter);
         spinner.setValueFactory(factory);
         spinner.setEditable(true);
+    }
+
+    private void handlePaymentSubmitButton(ActionEvent event){
+        payment = new Payment()
     }
 
 }
