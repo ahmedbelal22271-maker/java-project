@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.StringConverter;
 
+import javax.xml.crypto.Data;
+
 
 public class PaymentController {
     public ImageView vehicleImageView;
@@ -23,9 +25,14 @@ public class PaymentController {
     public String paymentMethod;
     public Label nameLabel;
     public Label licenseLabel;
+    public Button returnButton;
+    public Label invalidCreditCardLabel;
+
 
     @FXML
     public void initialize(){
+        invalidCreditCardLabel.setVisible(false);
+        Database.generateCreditCardNumbers();
         creditCardTextField.setVisible(false);
         setupSafeSpinner(noOfDaysSpinner, 1, 30, 1, 1);
 
@@ -72,7 +79,7 @@ public class PaymentController {
                 double totalCost = newValue * rentPerDay;
 
                 // 3. Update the Label
-                totalAmountLabel.setText("Total Cost: $" + totalCost);
+                totalAmountLabel.setText(""+totalCost);
             }
         });
 
@@ -126,8 +133,38 @@ public class PaymentController {
     }
 
     @FXML
-    private void handlePaymentSubmitButton(ActionEvent event){
-        //payment = new Payment()
+    private void handlePaymentSubmitButton(ActionEvent event) {
+        if (paymentMethod.equals("credit card")) {
+            boolean validCreditCard = false;
+            String writtenCreditCard = creditCardTextField.getText();
+            for (String card : Database.creditCardNumbers){
+                if (writtenCreditCard.equals(card)) {
+                    validCreditCard = true;
+                    break;
+                }
+
+            }
+            if (!validCreditCard){
+                invalidCreditCardLabel.setVisible(true);
+            }
+
+
+
+        }
+
+
+
+
+        payment = new Payment(Integer.parseInt(totalAmountLabel.getText()),
+                Database.currentBooking,
+                paymentMethod
+        );
+
+    }
+
+    @FXML
+    private void handleReturnButton(ActionEvent event) {
+        SceneSwitcher.switchTo("/display-vehicle.fxml", "Display Vehicle Scene");
     }
 
 

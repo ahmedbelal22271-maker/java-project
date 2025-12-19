@@ -47,5 +47,7 @@
       <Label layoutX="371.0" layoutY="152.0" text="License Number:" />
       <Label fx:id="nameLabel" layoutX="471.0" layoutY="120.0" text="Label" />
       <Label fx:id="licenseLabel" layoutX="471.0" layoutY="152.0" text="Label" />
+      <Button fx:id="returnButton" layoutX="530.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleReturnButton" text="RETURN" />
+      <Label fx:id="invalidCreditCardLabel" layoutX="450.0" layoutY="315.0" text="Invalid Credit Card" textFill="RED" />
    </children>
 </AnchorPane>

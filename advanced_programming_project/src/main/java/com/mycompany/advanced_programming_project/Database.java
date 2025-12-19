@@ -39,6 +39,7 @@ public class Database {
     static Vehicle currentVehicle = null;
     static Booking currentBooking = null;
     static Payment currentPayment = null;
+    static ArrayList<String> creditCardNumbers = new ArrayList<>();
 
 
     // FIX 2: Changed to 'static' so you can call it from anywhere without 'new VehicleArrayList()'
@@ -105,6 +106,40 @@ public class Database {
 
             bikesList.add(new Bike(make, model, year, rate, 10, model));
         }
+    }
+
+    public static void generateCreditCardNumbers() {
+        creditCardNumbers.clear(); // Clear old data to avoid duplicates
+
+        // --- VISA ---
+        creditCardNumbers.add("4242 4242 4242 4242");
+        creditCardNumbers.add("4111 1111 1111 1111");
+        creditCardNumbers.add("4000 0012 3456 7890");
+        creditCardNumbers.add("4012 8888 8888 1881");
+        creditCardNumbers.add("4242 4242 4242 4241");
+
+        // --- MASTERCARD ---
+        creditCardNumbers.add("5555 5555 5555 4444");
+        creditCardNumbers.add("5105 1051 0510 5100");
+        creditCardNumbers.add("5454 5454 5454 5454");
+        creditCardNumbers.add("5200 8282 8282 8210");
+        creditCardNumbers.add("5500 0000 0000 0004");
+
+        // --- AMEX ---
+        creditCardNumbers.add("3782 822463 10005");
+        creditCardNumbers.add("3714 496353 98431");
+        creditCardNumbers.add("3400 123456 78901");
+        creditCardNumbers.add("3759 876543 21098");
+
+        // --- DISCOVER ---
+        creditCardNumbers.add("6011 1111 1111 1117");
+        creditCardNumbers.add("6500 0000 0000 0000");
+        creditCardNumbers.add("6411 1111 1111 1111");
+
+        // --- OTHERS ---
+        creditCardNumbers.add("3000 0000 0000 0004");
+        creditCardNumbers.add("3528 2828 2828 2828");
+        creditCardNumbers.add("5018 1234 5678 9010");
     }
 
     // FIX 3: Removed the weird "};" and fixed the parameter type
