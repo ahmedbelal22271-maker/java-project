@@ -126,7 +126,7 @@ public class PaymentController {
     }
 
     private void handlePaymentSubmitButton(ActionEvent event){
-        payment = new Payment()
+        //payment = new Payment()
     }
 
 }
