@@ -22,18 +22,27 @@ public class PaymentController {
     public RadioButton creditCardRadioButton;
     public RadioButton cashRadioButton;
     public Payment payment;
-    public String paymentMethod;
+    public String paymentMethod = "null";
     public Label nameLabel;
     public Label licenseLabel;
     public Button returnButton;
     public Label invalidCreditCardLabel;
+    public Label paymentSuccessfulLabel;
+    public Label provideAMethodLabel;
+    public Label chooseTheNoOfDaysLabel;
 
 
     @FXML
     public void initialize(){
-        invalidCreditCardLabel.setVisible(false);
-        Database.generateCreditCardNumbers();
+        chooseTheNoOfDaysLabel.setVisible(false);
         creditCardTextField.setVisible(false);
+        totalAmountLabel.setVisible(true);
+        totalAmountLabel.setText("" + Database.currentVehicle.getRentalRatePerDay());
+        invalidCreditCardLabel.setVisible(false);
+        paymentSuccessfulLabel.setVisible(false);
+        provideAMethodLabel.setVisible(false);
+
+        Database.generateCreditCardNumbers();
         setupSafeSpinner(noOfDaysSpinner, 1, 30, 1, 1);
 
         User user = Database.currentUser;
@@ -55,6 +64,7 @@ public class PaymentController {
         }
 
         paymentGroup.selectedToggleProperty().addListener((observable, oldVal, newVal) -> {
+            provideAMethodLabel.setVisible(false);
             if (newVal != null){
                 RadioButton selected = (RadioButton) newVal;
                 paymentMethod = selected.getText();
@@ -72,6 +82,7 @@ public class PaymentController {
 
             // 1. Check if the new value is valid (not null)
             if (newValue != null) {
+                totalAmountLabel.setVisible(true);
 
                 // 2. Perform your calculation
                 // Example: Calculate Total Cost = Days * Rent Per Day
@@ -134,31 +145,55 @@ public class PaymentController {
 
     @FXML
     private void handlePaymentSubmitButton(ActionEvent event) {
-        if (paymentMethod.equals("credit card")) {
-            boolean validCreditCard = false;
-            String writtenCreditCard = creditCardTextField.getText();
-            for (String card : Database.creditCardNumbers){
-                if (writtenCreditCard.equals(card)) {
-                    validCreditCard = true;
-                    break;
+        if (!paymentMethod.equals("null")){
+            provideAMethodLabel.setVisible(false);
+            if (paymentMethod.equals("credit card")) {
+                boolean validCreditCard = false;
+                String writtenCreditCard = creditCardTextField.getText();
+                for (String card : Database.creditCardNumbers){
+                    if (writtenCreditCard.equals(card)) {
+                        validCreditCard = true;
+                        break;
+                    }
+
+                }
+                if (!validCreditCard){
+                    invalidCreditCardLabel.setVisible(true);
+                    paymentSuccessfulLabel.setVisible(false);
+                }
+                else{
+                    invalidCreditCardLabel.setVisible(false);
+                    paymentSuccessfulLabel.setVisible(true);
                 }
 
+
+
             }
-            if (!validCreditCard){
-                invalidCreditCardLabel.setVisible(true);
+            else{
+                invalidCreditCardLabel.setVisible(false);
+                paymentSuccessfulLabel.setVisible(true);
             }
 
 
+
+
+            payment = new Payment((double) Double.parseDouble(totalAmountLabel.getText()),
+                    Database.currentBooking,
+                    paymentMethod
+            );
 
         }
+        else{
+            provideAMethodLabel.setVisible(true);
+        }
 
+        if (noOfDaysSpinner.getValue() == 0){
+            chooseTheNoOfDaysLabel.setVisible(true);
+        }
+        else{
+            chooseTheNoOfDaysLabel.setVisible(false);
+        }
 
-
-
-        payment = new Payment(Integer.parseInt(totalAmountLabel.getText()),
-                Database.currentBooking,
-                paymentMethod
-        );
 
     }
 
