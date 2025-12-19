@@ -5,6 +5,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -24,8 +25,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <RadioButton layoutX="25.0" layoutY="306.0" mnemonicParsing="false" text="credit card" />
-      <RadioButton layoutX="151.0" layoutY="306.0" mnemonicParsing="false" text="cash" />
+      <RadioButton fx:id="creditCardRadioButton" layoutX="25.0" layoutY="306.0" mnemonicParsing="false" text="credit card">
+         <toggleGroup>
+            <ToggleGroup fx:id="paymentGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="cashRadioButton" layoutX="151.0" layoutY="306.0" mnemonicParsing="false" text="cash" toggleGroup="$paymentGroup" />
       <TextField fx:id="creditCardTextField" layoutX="26.0" layoutY="347.0" prefHeight="26.0" prefWidth="185.0" />
       <Spinner fx:id="noOfDaysSpinner" layoutX="157.0" layoutY="172.0" prefHeight="26.0" prefWidth="61.0" />
       <Label fx:id="totalAmountLabel" layoutX="137.0" layoutY="222.0" text="Label" />
@@ -34,10 +38,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="426.0" layoutY="110.0" text="email :" />
-      <Label layoutX="469.0" layoutY="110.0" text="Label" />
+      <Label layoutX="398.0" layoutY="109.0" text="email :" />
+      <Label fx:id="emailLabel" layoutX="443.0" layoutY="109.0" text="Label" />
       <Label layoutX="381.0" layoutY="213.0" prefHeight="18.0" prefWidth="90.0" text="phone number :" />
-      <Label layoutX="469.0" layoutY="213.0" text="Label" />
-      <Button layoutX="430.0" layoutY="347.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="139.0" text="Pay &amp; confirm Booking" />
+      <Label fx:id="phoneNumberLabel" layoutX="471.0" layoutY="213.0" text="Label" />
+      <Button fx:id="confirmButton" layoutX="430.0" layoutY="347.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="139.0" text="Pay &amp; confirm Booking" />
    </children>
 </AnchorPane>

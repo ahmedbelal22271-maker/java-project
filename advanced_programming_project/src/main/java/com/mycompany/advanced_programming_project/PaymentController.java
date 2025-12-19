@@ -1,17 +1,50 @@
 package com.mycompany.advanced_programming_project;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.StringConverter;
 
 public class PaymentController {
-    public Spinner<Integer> NoOfDaysSpinner;
+    public ImageView vehicleImageView;
+    public ToggleGroup paymentGroup;
+    public TextField creditCardTextField;
+    public Spinner<Integer> noOfDaysSpinner;
+    public Label totalAmountLabel;
+    public Label emailLabel;
+    public Label phoneNumberLabel;
+    public Button confirmButton;
+    public RadioButton creditCardRadioButton;
+    public RadioButton cashRadioButton;
 
     @FXML
     public void initialize(){
 
-        setupSafeSpinner(NoOfDaysSpinner, 1, 30, 1, 1);
+        setupSafeSpinner(noOfDaysSpinner, 1, 30, 1, 1);
+
+        Vehicle vehicle = Database.currentVehicle;
+
+        if (vehicle.imageFilePath != null && !vehicle.imageFilePath.isEmpty()) {
+            try {
+                Image img = new Image(getClass().getResourceAsStream(vehicle.imageFilePath));
+                vehicleImageView.setImage(img);
+            } catch (Exception e) {
+                System.out.println("Error loading image: " + vehicle.imageFilePath);
+            }
+        }
+
+        paymentGroup.selectedToggleProperty().addListener((observable, oldVal, newVal) -> {
+            if (newVal != null){
+                RadioButton selected = (RadioButton) newVal;
+
+
+            }
+        });
+
+
+
+
     }
 
 
