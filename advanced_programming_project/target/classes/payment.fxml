@@ -5,6 +5,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -16,7 +17,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="97.0" fitWidth="206.0" layoutX="16.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="vehicleImageView" fitHeight="97.0" fitWidth="206.0" layoutX="16.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="25.0" layoutY="176.0" text="number of rental days:" />
       <Label layoutX="27.0" layoutY="222.0" text="Total amount:" />
       <Label layoutX="51.0" layoutY="268.0" text="Payment method">
@@ -24,20 +25,27 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <RadioButton layoutX="25.0" layoutY="306.0" mnemonicParsing="false" text="credit card" />
-      <RadioButton layoutX="151.0" layoutY="306.0" mnemonicParsing="false" text="cash" />
-      <TextField layoutX="26.0" layoutY="347.0" prefHeight="26.0" prefWidth="185.0" />
-      <Spinner layoutX="157.0" layoutY="172.0" prefHeight="26.0" prefWidth="61.0" />
-      <Label layoutX="137.0" layoutY="222.0" text="Label" />
+      <RadioButton fx:id="creditCardRadioButton" layoutX="25.0" layoutY="306.0" mnemonicParsing="false" text="credit card">
+         <toggleGroup>
+            <ToggleGroup fx:id="paymentGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="cashRadioButton" layoutX="151.0" layoutY="306.0" mnemonicParsing="false" text="cash" toggleGroup="$paymentGroup" />
+      <TextField fx:id="creditCardTextField" layoutX="26.0" layoutY="347.0" prefHeight="26.0" prefWidth="185.0" />
+      <Spinner fx:id="noOfDaysSpinner" layoutX="157.0" layoutY="172.0" prefHeight="26.0" prefWidth="61.0" />
+      <Label fx:id="totalAmountLabel" layoutX="137.0" layoutY="222.0" text="Label" />
       <Label layoutX="416.0" layoutY="69.0" text="Your information">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="426.0" layoutY="110.0" text="email :" />
-      <Label layoutX="441.0" layoutY="152.0" text="Label" />
-      <Label layoutX="426.0" layoutY="213.0" prefHeight="18.0" prefWidth="90.0" text="phone number :" />
-      <Label layoutX="441.0" layoutY="260.0" text="Label" />
-      <Button layoutX="430.0" layoutY="347.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="139.0" text="Pay &amp; confirm Booking" />
+      <Label layoutX="408.0" layoutY="182.0" text="email :" />
+      <Label fx:id="emailLabel" layoutX="471.0" layoutY="182.0" text="Label" />
+      <Label layoutX="381.0" layoutY="213.0" prefHeight="18.0" prefWidth="90.0" text="phone number :" />
+      <Label fx:id="phoneNumberLabel" layoutX="471.0" layoutY="213.0" text="Label" />
+      <Button fx:id="confirmButton" layoutX="430.0" layoutY="347.0" mnemonicParsing="false" onAction="#handlePaymentSubmitButton" prefHeight="26.0" prefWidth="139.0" text="Pay &amp; confirm Booking" />
+      <Label layoutX="408.0" layoutY="120.0" text="Name:" />
+      <Label layoutX="371.0" layoutY="152.0" text="License Number:" />
+      <Label fx:id="nameLabel" layoutX="471.0" layoutY="120.0" text="Label" />
+      <Label fx:id="licenseLabel" layoutX="471.0" layoutY="152.0" text="Label" />
    </children>
 </AnchorPane>

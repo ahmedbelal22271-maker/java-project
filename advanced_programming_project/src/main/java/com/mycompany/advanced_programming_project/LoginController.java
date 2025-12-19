@@ -65,13 +65,13 @@ public class LoginController {
 
 
             }
-            if (phoneNo.equals(user.getPhone_number())){
+            if (phoneNo.equals(user.getPhoneNumber())){
                 isCorrectPhoneNo = true;
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 
 
             }
-            if (licenseNo.equals(user.getLicense_number())){
+            if (licenseNo.equals(user.getLicenseNumber())){
                 isCorrectLicenseNo = true;
                 //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
 

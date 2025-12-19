@@ -1,12 +1,12 @@
 package com.mycompany.advanced_programming_project;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.StringConverter;
 
-import java.awt.event.ActionEvent;
 
 public class PaymentController {
     public ImageView vehicleImageView;
@@ -125,8 +125,10 @@ public class PaymentController {
         spinner.setEditable(true);
     }
 
+    @FXML
     private void handlePaymentSubmitButton(ActionEvent event){
         //payment = new Payment()
     }
+
 
 }
