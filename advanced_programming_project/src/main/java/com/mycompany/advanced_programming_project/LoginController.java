@@ -8,90 +8,44 @@ import javafx.scene.control.TextField;
 
 public class LoginController {
 
-    @FXML
-    public Button loginButton;
-    public TextField nameField;
-    public TextField userIdField;
-    public TextField phoneNoField;
-    public TextField licenseNoField;
-    public Label invalidLoginLabel;
-    @FXML
-    private TextField emailField;
+    @FXML private Button loginButton;
+    @FXML private Label invalidLoginLabel;
+    @FXML private TextField nameField, userIdField, phoneNoField, licenseNoField, emailField;
 
     @FXML
-    public void initialize(){
+    private void initialize() {
         invalidLoginLabel.setVisible(false);
     }
 
     @FXML
-    public void handleLoginButton(ActionEvent event){
-
+    private void handleLoginButton(ActionEvent event) {
         String name = nameField.getText();
         String userId = userIdField.getText();
         String email = emailField.getText();
         String phoneNo = phoneNoField.getText();
         String licenseNo = licenseNoField.getText();
 
-        boolean isCorrectName = false;
-        boolean isCorrectUserId = false;
-        boolean isCorrectEmail = false;
-        boolean isCorrectPhoneNo = false;
-        boolean isCorrectLicenseNo = false;
-        User currentUser = null;
         boolean foundUser = false;
 
-        for (User user : Database.userArray){
-            isCorrectName = false;
-            isCorrectUserId = false;
-            isCorrectEmail = false;
-            isCorrectPhoneNo = false;
-            isCorrectLicenseNo = false;
-            if (name.equals(user.getName())){
-                isCorrectName = true;
-                System.out.println("name is correct");
-                //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
+        for (User user : Database.userArray) {
+            boolean isCorrectName = name.equals(user.getName());
+            boolean isCorrectUserId = userId.equals(user.getUser_id());
+            boolean isCorrectEmail = email.equals(user.getEmail());
+            boolean isCorrectPhoneNo = phoneNo.equals(user.getPhoneNumber());
+            boolean isCorrectLicenseNo = licenseNo.equals(user.getLicenseNumber());
 
-
-            }
-            if (userId.equals(user.getUser_id())){
-                isCorrectUserId = true;
-                //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
-
-
-            }
-            if (email.equals(user.getEmail())){
-                isCorrectEmail = true;
-                //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
-
-
-            }
-            if (phoneNo.equals(user.getPhoneNumber())){
-                isCorrectPhoneNo = true;
-                //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
-
-
-            }
-            if (licenseNo.equals(user.getLicenseNumber())){
-                isCorrectLicenseNo = true;
-                //SceneSwitcher.switchTo("/choose-vehicle.fxml", "Choose Vehicle Interface");
-
-
-            }
-            if (isCorrectEmail & isCorrectName & isCorrectLicenseNo & isCorrectPhoneNo & isCorrectUserId){
+            if (isCorrectEmail && isCorrectName && isCorrectLicenseNo && isCorrectPhoneNo && isCorrectUserId) {
                 foundUser = true;
                 Database.currentUser = user;
                 break;
             }
         }
 
-        if (foundUser){
+        if (foundUser) {
             SceneSwitcher.switchTo("/choose-vehicle.fxml", "Vehicle Rental System");
-        }
-        else{
+        } else {
             System.out.println("Login invalid");
             invalidLoginLabel.setVisible(true);
         }
-
     }
-
 }

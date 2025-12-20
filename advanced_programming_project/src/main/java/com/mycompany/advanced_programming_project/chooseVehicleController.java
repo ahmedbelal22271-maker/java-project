@@ -4,62 +4,39 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
-
 import java.util.ArrayList;
 
 public class chooseVehicleController {
-    public ChoiceBox<String> myChoiceBox;
-    public Label usernameLabel;
-    public Label fuelType_EngineInHorsePower_typeLabel;
-    public Label model_cargoCapacity_nullLabel;
-    public Label numberOfSeats_null_nullLabel;
-    public TextField fuelType_EngineInHorsePower_typeTextField;
-    public TextField model_cargoCapacity_nullTextField;
-    public TextField numberOfSeats_null_nullTextField;
-    public ChoiceBox<String> fuelTypeChoiceBox;
-    public Spinner<Integer> horsepowerSpinner;
-    public ChoiceBox<String> modelChoiceBox;
-    public Spinner<Integer> cargoCapacitySpinner;
-    public ChoiceBox<String> typeChoiceBox;
-    public Spinner<Integer> noOfSeatsSpinner;
-    public Label cargoCapacityLabel;
+
+    @FXML private ChoiceBox<String> myChoiceBox, fuelTypeChoiceBox, modelChoiceBox, typeChoiceBox;
+    @FXML private Label usernameLabel, fuelType_EngineInHorsePower_typeLabel, model_cargoCapacity_nullLabel,
+            numberOfSeats_null_nullLabel, cargoCapacityLabel;
+    @FXML private TextField fuelType_EngineInHorsePower_typeTextField, model_cargoCapacity_nullTextField,
+            numberOfSeats_null_nullTextField;
+    @FXML private Spinner<Integer> horsepowerSpinner, cargoCapacitySpinner, noOfSeatsSpinner;
 
     @FXML
-    public void initialize(){
+    private void initialize() {
         Database.generateData();
 
         // 1. Setup ChoiceBoxes
-        myChoiceBox.getItems().addAll("Car", "Van","Bike");
+        myChoiceBox.getItems().addAll("Car", "Van", "Bike");
         myChoiceBox.setValue("select a vehicle");
 
-        fuelTypeChoiceBox.getItems().addAll("Petrol","Diesel","Electric");
-        typeChoiceBox.getItems().addAll("Motor Bike","Motor Skooter","Racing Motor Bike");
+        fuelTypeChoiceBox.getItems().addAll("Petrol", "Diesel", "Electric");
+        typeChoiceBox.getItems().addAll("Motor Bike", "Motor Skooter", "Racing Motor Bike");
         modelChoiceBox.getItems().addAll("SUV", "Sedan", "Hatchback", "Coupe");
 
         // 2. Setup Spinners using the Safe Method
-        // Horsepower: Min 70, Max 350
         setupSafeSpinner(horsepowerSpinner, 70, 350, 130, 5);
-
-        // Cargo: Min 0, Max 5000
         setupSafeSpinner(cargoCapacitySpinner, 0, 5000, 500, 50);
-
-        // Seats: Min 0, Max 6
         setupSafeSpinner(noOfSeatsSpinner, 0, 6, 4, 1);
 
         // 3. Set Initial Visibility
-        fuelType_EngineInHorsePower_typeLabel.setVisible(false);
-        model_cargoCapacity_nullLabel.setVisible(false);
-        numberOfSeats_null_nullLabel.setVisible(false);
-        fuelType_EngineInHorsePower_typeTextField.setVisible(false);
-        fuelTypeChoiceBox.setVisible(false);
-        horsepowerSpinner.setVisible(false);
-        typeChoiceBox.setVisible(false);
-        model_cargoCapacity_nullTextField.setVisible(false);
-        modelChoiceBox.setVisible(false);
-        cargoCapacitySpinner.setVisible(false);
-        cargoCapacityLabel.setVisible(false);
-        numberOfSeats_null_nullTextField.setVisible(false);
-        noOfSeatsSpinner.setVisible(false);
+        setVisible(false, fuelType_EngineInHorsePower_typeLabel, model_cargoCapacity_nullLabel,
+                numberOfSeats_null_nullLabel, fuelType_EngineInHorsePower_typeTextField, fuelTypeChoiceBox,
+                horsepowerSpinner, typeChoiceBox, model_cargoCapacity_nullTextField, modelChoiceBox,
+                cargoCapacitySpinner, cargoCapacityLabel, numberOfSeats_null_nullTextField, noOfSeatsSpinner);
 
         usernameLabel.setText("Hello, " + Database.currentUser.getName());
 
@@ -67,62 +44,45 @@ public class chooseVehicleController {
             if (newValue != null) {
                 switch (newValue) {
                     case "Car":
-                        fuelType_EngineInHorsePower_typeLabel.setText("Fuel Type:");
-                        model_cargoCapacity_nullLabel.setText("Model:");
-                        numberOfSeats_null_nullLabel.setText("Number of Seats:");
-                        fuelType_EngineInHorsePower_typeLabel.setVisible(true);
-                        model_cargoCapacity_nullLabel.setVisible(true);
-                        numberOfSeats_null_nullLabel.setVisible(true);
-                        fuelType_EngineInHorsePower_typeTextField.setVisible(false);
-                        fuelTypeChoiceBox.setVisible(true);
-                        horsepowerSpinner.setVisible(false);
-                        typeChoiceBox.setVisible(false);
-                        model_cargoCapacity_nullTextField.setVisible(false);
-                        modelChoiceBox.setVisible(true);
-                        cargoCapacitySpinner.setVisible(false);
-                        cargoCapacityLabel.setVisible(false);
-                        numberOfSeats_null_nullTextField.setVisible(false);
-                        noOfSeatsSpinner.setVisible(true);
+                        updateLabels("Fuel Type:", "Model:", "Number of Seats:");
+                        setVisible(true, fuelType_EngineInHorsePower_typeLabel, model_cargoCapacity_nullLabel,
+                                numberOfSeats_null_nullLabel, fuelTypeChoiceBox, modelChoiceBox, noOfSeatsSpinner);
+                        setVisible(false, fuelType_EngineInHorsePower_typeTextField, horsepowerSpinner, typeChoiceBox,
+                                model_cargoCapacity_nullTextField, cargoCapacitySpinner, cargoCapacityLabel,
+                                numberOfSeats_null_nullTextField);
                         break;
                     case "Van":
-                        fuelType_EngineInHorsePower_typeLabel.setText("Engine in Horsepower:");
-                        model_cargoCapacity_nullLabel.setText("Cargo Capacity:");
-                        numberOfSeats_null_nullLabel.setText("null:");
-                        fuelType_EngineInHorsePower_typeLabel.setVisible(true);
-                        model_cargoCapacity_nullLabel.setVisible(true);
-                        numberOfSeats_null_nullLabel.setVisible(false);
-                        fuelType_EngineInHorsePower_typeTextField.setVisible(false);
-                        fuelTypeChoiceBox.setVisible(false);
-                        horsepowerSpinner.setVisible(true);
-                        typeChoiceBox.setVisible(false);
-                        model_cargoCapacity_nullTextField.setVisible(false);
-                        modelChoiceBox.setVisible(false);
-                        cargoCapacitySpinner.setVisible(true);
-                        cargoCapacityLabel.setVisible(false);
-                        numberOfSeats_null_nullTextField.setVisible(false);
-                        noOfSeatsSpinner.setVisible(false);
+                        updateLabels("Engine in Horsepower:", "Cargo Capacity:", "null");
+                        setVisible(true, fuelType_EngineInHorsePower_typeLabel, model_cargoCapacity_nullLabel,
+                                horsepowerSpinner, cargoCapacitySpinner);
+                        setVisible(false, numberOfSeats_null_nullLabel, fuelType_EngineInHorsePower_typeTextField,
+                                fuelTypeChoiceBox, typeChoiceBox, model_cargoCapacity_nullTextField, modelChoiceBox,
+                                cargoCapacityLabel, numberOfSeats_null_nullTextField, noOfSeatsSpinner);
                         break;
                     case "Bike":
-                        fuelType_EngineInHorsePower_typeLabel.setText("Bike Type:");
-                        model_cargoCapacity_nullLabel.setText("null");
-                        numberOfSeats_null_nullLabel.setText("null");
-                        fuelType_EngineInHorsePower_typeLabel.setVisible(true);
-                        model_cargoCapacity_nullLabel.setVisible(false);
-                        numberOfSeats_null_nullLabel.setVisible(false);
-                        fuelType_EngineInHorsePower_typeTextField.setVisible(false);
-                        fuelTypeChoiceBox.setVisible(false);
-                        horsepowerSpinner.setVisible(false);
-                        typeChoiceBox.setVisible(true);
-                        model_cargoCapacity_nullTextField.setVisible(false);
-                        modelChoiceBox.setVisible(false);
-                        cargoCapacitySpinner.setVisible(false);
-                        cargoCapacityLabel.setVisible(false);
-                        numberOfSeats_null_nullTextField.setVisible(false);
-                        noOfSeatsSpinner.setVisible(false);
+                        updateLabels("Bike Type:", "null", "null");
+                        setVisible(true, fuelType_EngineInHorsePower_typeLabel, typeChoiceBox);
+                        setVisible(false, model_cargoCapacity_nullLabel, numberOfSeats_null_nullLabel,
+                                fuelType_EngineInHorsePower_typeTextField, fuelTypeChoiceBox, horsepowerSpinner,
+                                model_cargoCapacity_nullTextField, modelChoiceBox, cargoCapacitySpinner,
+                                cargoCapacityLabel, numberOfSeats_null_nullTextField, noOfSeatsSpinner);
                         break;
                 }
             }
         });
+    }
+
+    // Helper to set visibility for multiple nodes at once
+    private void setVisible(boolean visible, Control... controls) {
+        for (Control c : controls) {
+            c.setVisible(visible);
+        }
+    }
+
+    private void updateLabels(String l1, String l2, String l3) {
+        fuelType_EngineInHorsePower_typeLabel.setText(l1);
+        model_cargoCapacity_nullLabel.setText(l2);
+        numberOfSeats_null_nullLabel.setText(l3);
     }
 
     // --- ENHANCED HELPER METHOD: HANDLES TYPES AND RANGES ---
@@ -139,27 +99,12 @@ public class chooseVehicleController {
             @Override
             public Integer fromString(String string) {
                 try {
-                    // Check for empty input
-                    if (string == null || string.trim().isEmpty()) {
-                        return min;
-                    }
-
+                    if (string == null || string.trim().isEmpty()) return min;
                     int value = Integer.parseInt(string);
-
-                    // --- RANGE CHECKS ---
-                    if (value < min) {
-                        System.out.println("Input too low (" + value + "). Resetting to min: " + min);
-                        return min;
-                    } else if (value > max) {
-                        System.out.println("Input too high (" + value + "). Resetting to max: " + max);
-                        return max;
-                    }
-
+                    if (value < min) return min;
+                    else if (value > max) return max;
                     return value;
-
                 } catch (NumberFormatException e) {
-                    // Check for invalid text (e.g. "abc")
-                    System.out.println("Invalid input '" + string + "'. Resetting to min: " + min);
                     return min;
                 }
             }
@@ -171,54 +116,50 @@ public class chooseVehicleController {
     }
 
     @FXML
-    void handleSubmitButton(ActionEvent event) {
+    private void handleSubmitButton(ActionEvent event) {
         System.out.println("the submit button was clicked");
         ArrayList<Vehicle> list = new ArrayList<>();
         String vehicleChoice = myChoiceBox.getValue();
         System.out.println("the vehicle chosen is: " + vehicleChoice);
 
-        if (vehicleChoice.equals("Car")){
+        if ("Car".equals(vehicleChoice)) {
             System.out.println("The vehicle is indeed a car");
             String fuelTypeChoice = fuelTypeChoiceBox.getValue();
             String modelChoice = modelChoiceBox.getValue();
             int numberOfSeatsChoice = noOfSeatsSpinner.getValue();
-            for (Car car : Database.carsList){
+            for (Car car : Database.carsList) {
                 if (car.getFuelType().equals(fuelTypeChoice) &&
                         car.getNumberOfSeats() >= numberOfSeatsChoice &&
-                        car.getModel().equals(modelChoice)
-                ) {
+                        car.getModel().equals(modelChoice)) {
                     list.add(car);
                 }
             }
-        }
-        if (vehicleChoice.equals("Van")){
+        } else if ("Van".equals(vehicleChoice)) {
             System.out.println("the vehicle is indeed a van");
             int horsepowerChoice = horsepowerSpinner.getValue();
             int cargoCapacityChoice = cargoCapacitySpinner.getValue();
-
-            for (Van van : Database.vansList){
+            for (Van van : Database.vansList) {
                 if (van.getEngineInHorsePower() >= horsepowerChoice &&
-                        van.getCargoCapacity() >= cargoCapacityChoice){
+                        van.getCargoCapacity() >= cargoCapacityChoice) {
                     list.add(van);
                 }
             }
-        }
-        if (vehicleChoice.equals("Bike")){
+        } else if ("Bike".equals(vehicleChoice)) {
             System.out.println("the vehicle is indeed a bike");
             String typeChoice = typeChoiceBox.getValue();
-
-            for (Bike bike : Database.bikesList){
-                if (bike.getType().equals(typeChoice)){
+            for (Bike bike : Database.bikesList) {
+                if (bike.getType().equals(typeChoice)) {
                     list.add(bike);
                 }
             }
         }
+
         Database.assignArrayList(list);
-        for (Vehicle v : list ){
+        for (Vehicle v : list) {
             System.out.println(v);
         }
 
-        if (!list.isEmpty()){
+        if (!list.isEmpty()) {
             System.out.println("The vehicle arraylist is indeed not empty");
             SceneSwitcher.switchTo("/display-vehicle.fxml", "Vehicle Display Scene");
         }

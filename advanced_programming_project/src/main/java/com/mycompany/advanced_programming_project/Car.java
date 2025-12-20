@@ -9,8 +9,8 @@ package com.mycompany.advanced_programming_project;
  * @author marwa
  */
 public class Car extends Vehicle implements Displayable{
-    String fuelType;
-    int numberOfSeats;
+    private String fuelType;
+    private int numberOfSeats;
 
     Car(String manufacturer, String model, int year, float rentalRatePerDay, int numberAvailable, String fuelType, int numberOfSeats){
         super(manufacturer,model,numberAvailable,rentalRatePerDay,year);

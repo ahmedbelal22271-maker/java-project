@@ -16,8 +16,6 @@ public class MainApplication extends Application {
 
 
         // 1. THIS IS THE LINE THAT LOADS THE FILE
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/login-view.fxml"));
-
         SceneSwitcher.switchTo("/login-view.fxml", "Login page");
     }
 
