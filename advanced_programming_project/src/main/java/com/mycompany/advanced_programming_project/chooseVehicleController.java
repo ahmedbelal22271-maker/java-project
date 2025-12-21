@@ -155,12 +155,8 @@ public class chooseVehicleController {
         }
 
         Database.assignArrayList(list);
-        for (Vehicle v : list) {
-            System.out.println(v);
-        }
 
         if (!list.isEmpty()) {
-            System.out.println("The vehicle arraylist is indeed not empty");
             SceneSwitcher.switchTo("/display-vehicle.fxml", "Vehicle Display Scene");
         }
     }

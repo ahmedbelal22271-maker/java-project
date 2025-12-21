@@ -58,7 +58,7 @@ public class Database {
         String[] carModels = {"SUV", "Sedan", "Hatchback", "Coupe"};
         String[] fuels = {"Petrol", "Diesel", "Electric"};
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 60; i++) {
             String make = carMakes[rand.nextInt(carMakes.length)];
             String model = carModels[rand.nextInt(carModels.length)];
             String fuel = fuels[rand.nextInt(fuels.length)];
@@ -82,7 +82,7 @@ public class Database {
         // ==========================================
         String[] vanMakes = {"Ford", "Renault", "Mercedes", "Volkswagen"};
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 60; i++) {
             String make = vanMakes[rand.nextInt(vanMakes.length)];
             int year = 2018 + rand.nextInt(7);
             float rate = 60 + rand.nextInt(50);
@@ -98,7 +98,7 @@ public class Database {
         String[] bikeMakes = {"Yamaha", "Ducati", "Kawasaki", "Harley"};
         String[] bikeModels = {"Motor Bike", "Racing Motor Bike", "Motor Skooter"};
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 60; i++) {
             String make = bikeMakes[rand.nextInt(bikeMakes.length)];
             String model = bikeModels[rand.nextInt(bikeModels.length)];
             int year = 2020 + rand.nextInt(5);
