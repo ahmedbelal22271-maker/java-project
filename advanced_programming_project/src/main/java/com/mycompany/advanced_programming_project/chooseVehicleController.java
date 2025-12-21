@@ -117,13 +117,11 @@ public class chooseVehicleController {
 
     @FXML
     private void handleSubmitButton(ActionEvent event) {
-        System.out.println("the submit button was clicked");
         ArrayList<Vehicle> list = new ArrayList<>();
         String vehicleChoice = myChoiceBox.getValue();
-        System.out.println("the vehicle chosen is: " + vehicleChoice);
+
 
         if ("Car".equals(vehicleChoice)) {
-            System.out.println("The vehicle is indeed a car");
             String fuelTypeChoice = fuelTypeChoiceBox.getValue();
             String modelChoice = modelChoiceBox.getValue();
             int numberOfSeatsChoice = noOfSeatsSpinner.getValue();
@@ -135,7 +133,6 @@ public class chooseVehicleController {
                 }
             }
         } else if ("Van".equals(vehicleChoice)) {
-            System.out.println("the vehicle is indeed a van");
             int horsepowerChoice = horsepowerSpinner.getValue();
             int cargoCapacityChoice = cargoCapacitySpinner.getValue();
             for (Van van : Database.vansList) {
@@ -145,7 +142,6 @@ public class chooseVehicleController {
                 }
             }
         } else if ("Bike".equals(vehicleChoice)) {
-            System.out.println("the vehicle is indeed a bike");
             String typeChoice = typeChoiceBox.getValue();
             for (Bike bike : Database.bikesList) {
                 if (bike.getType().equals(typeChoice)) {

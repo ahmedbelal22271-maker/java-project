@@ -44,7 +44,6 @@ public class LoginController {
         if (foundUser) {
             SceneSwitcher.switchTo("/choose-vehicle.fxml", "Vehicle Rental System");
         } else {
-            System.out.println("Login invalid");
             invalidLoginLabel.setVisible(true);
         }
     }

@@ -6,6 +6,7 @@ public class Payment {
 
     private double amount;
     private Booking booking;
+    private LocalDate paymentDate;
     private String paymentMethod;
     private String status;
 
@@ -13,28 +14,26 @@ public class Payment {
         this.amount = amount;
         this.booking = booking;
         this.paymentMethod = payment_method;
-//        process_payment(bookingTotal);
+
+    }
+
+    public Payment(double amount, Booking booking, String payment_method, LocalDate paymentDate, String status) {
+        this.amount = amount;
+        this.booking = booking;
+        this.paymentMethod = payment_method;
+        this.paymentDate = paymentDate;
+        this.status = status;
+
     }
 
 
-public void process_payment(double bookingTotal) { //car price
 
-    if (amount <= 0) {
-        status = "failed";
-
-    }
-    // CASH PAYMENT
-    if (paymentMethod.equalsIgnoreCase("cash")) {
-        boolean ok = amount >= bookingTotal;
-        status = ok ? "successful" : "failed";
-    }
-
-}
 
     public void send_receipt() {
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("Amount:" + amount);
         System.out.println("Status :" + status);
+        System.out.println("Payment Date :" + paymentDate);
 
     }
 }
